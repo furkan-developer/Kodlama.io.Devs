@@ -25,5 +25,10 @@ namespace Application.Features.ProgrammingLanguages.Rules
             IPaginate<ProgrammingLanguage> result = await _programmingLanguageRepository.GetListAsync(predicate: p => p.Name == name, enableTracking: false);
             if (result.Items.Any()) throw new BusinessException(ProgrammingLanguageMessages.ProgrammingLanguageNameIsAlreadyExist);
         }
+
+        public void ProgrammingLanguageShouldExistWhenRequested(ProgrammingLanguage? programmingLanguage)
+        {
+            if (programmingLanguage == null) throw new BusinessException("Requested brand does not exist");
+        }
     }
 }
