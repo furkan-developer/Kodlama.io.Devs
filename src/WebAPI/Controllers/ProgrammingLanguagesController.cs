@@ -39,5 +39,12 @@ namespace WebAPI.Controllers
 
             return Ok(result);
         }
+
+        [HttpPost("Remove")]
+        public async Task<IActionResult> Remove([FromQuery] DeleteProgrammingLanguageCommand deleteProgrammingLanguageCommand)
+        {          
+            DeletedProgrammingLanguageDto result = await Mediator.Send(deleteProgrammingLanguageCommand);
+            return Ok(result);
+        }
     }
 }

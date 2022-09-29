@@ -30,5 +30,10 @@ namespace Application.Features.ProgrammingLanguages.Rules
         {
             if (programmingLanguage == null) throw new BusinessException("Requested brand does not exist");
         }
+
+        public void ProgrammingLanguageShouldExistWhenDeleted(ProgrammingLanguage? programmingLanguage)
+        {       
+            if (programmingLanguage == null) throw new BusinessException("The programming language to be deleted does not exist"); 
+        }
     }
 }
